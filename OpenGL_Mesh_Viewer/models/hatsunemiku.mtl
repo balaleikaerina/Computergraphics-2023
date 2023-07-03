@@ -1,0 +1,78 @@
+# Blender 3.5.1 MTL File: 'None'
+# www.blender.org
+
+newmtl acce
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd acce_baseColor.jpeg
+map_Bump -bm 1.000000 acce_normal.png
+
+newmtl cloth
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd cloth_baseColor.jpeg
+map_Bump -bm 1.000000 cloth_normal.png
+
+newmtl emerald
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd emerald_baseColor.jpeg
+map_Bump -bm 1.000000 emerald_normal.png
+
+newmtl hair
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd hair_baseColor.jpeg
+map_Ke hair_emissive.jpeg
+map_Bump -bm 1.000000 hair_normal.png
+
+newmtl material
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd material_baseColor.jpeg
+map_Ke material_emissive.jpeg
+map_Bump -bm 1.000000 material_normal.png
+
+newmtl skin
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd skin_baseColor.jpeg
+map_Ke skin_emissive.jpeg
+map_Bump -bm 1.000000 skin_normal.png
+
+newmtl spec
+Ns 30.996521
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+illum 2
+map_Ke spec_emissive.jpeg
+map_d spec_baseColor.png
