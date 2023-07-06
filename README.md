@@ -1,4 +1,4 @@
-# Computergrafik2023
+# Computergrafik 2023
 This repository contains the submissions for the Computergrafik Course of 2023 at RheinMain University of Applied Sciences.
 
 ### Screenshots
