@@ -28,6 +28,22 @@
 
 """
 Modified by Erina Daraz 
+
+Uniform-B-Spline: Alle Knotenintervalle (Knotintervals) haben eine länge von 1
+(Knotenintervall = Distanz zwischen zwei Knoten)
+
+NURBS: (Non-Uniform-B(ezier)-Spline)
+Knotenintervalle können unterschiedlich lang sein.
+Die Kontrollpunkte besitzen Gewicht und Priorität?
+Gewicht und Priorität können auf den Kontrollpunkten unterschiedlich sein.
+
+Gewichtsänderung führen dazu, dass die Kurven sich zu oder von einem Punkt wegbewegen.
+
+Control points in NURBS are defined in normal coordinates (x, y, z).
+The knot vector is a separate array of parameter values that define the transitions between control points.
+The weights associated with control points are separate from the knot vector.
+Homogeneous coordinates (x, y, z, w) are used to represent control points and their weights, but the knot vector remains in normal coordinates.
+During the curve evaluation process, the control points are multiplied by their respective weights before applying the de Boor algorithm.
 """
 
 import glfw
@@ -85,20 +101,24 @@ class Scene:
         while t < self.knotvector[-1]:
             index = self.index(t)
             if index is not None:
-                point = self.deboor(self.degree, self.controllpoints, self.knotvector, self.weights, t, index)
+                point = self.deboor(self.degree, self.controllpoints, self.knotvector, self.weights, t, index) #kontrollpunkte rekursiv berechnen
                 self.points_on_bezier_curve.append(
                     point[:2] / point[2])  # Normalize by dividing by homogeneous coordinate
-            t += self.kurvenpunkte
+            t += self.kurvenpunkte #smoothness, bestimmt wie viele
 
 
+    #durchläuft die knoten und gibt den index des knoten zurück, der größer als t ist
     def index(self, t):
         return next(i - 1 for i in range(len(self.knotvector) - 1) if self.knotvector[i] > t)
 
+    # K = {...}
     def calculate_knots(self):
         self.knotvector = [0] * self.ordnung
         self.knotvector.extend(range(1, len(self.points) - (self.ordnung - 1)))
         self.knotvector.extend([len(self.points) - (self.ordnung - 2)] * self.ordnung)
 
+    #modified deboor/casteljau algorithm mit gewichten
+    #homogenous coordinates
     def deboor(self, degree, controllpoints, knotvector, weights, t, index):
         if degree == 0:
             return controllpoints[index] * weights[index]
@@ -177,6 +197,8 @@ class Scene:
         self.shader['m_proj'].write(m_proj)
 
     def add_point(self, point):
+
+
         if len(self.points) == 0:
             for i in range(5):
                 self.points.append(point)
@@ -200,16 +222,16 @@ class Scene:
     def rise_weight_one(self, index):
         if self.weights[index] < 10:
             self.weights[index] += 1
-            print("Rising weight for point:", index, "to:", self.weights[index])
+            print("Rising weight for point:", index - 2, "to:", self.weights[index])
         else:
-            print("Weight for point", index, "is already at the maximum value of 10.")
+            print("Weight for point", index - 2, "is already at the maximum value of 10.")
 
     def lower_weight_one(self, index):
         if self.weights[index] > 1:
             self.weights[index] -= 1
-            print("Lowering weight for point:", index, "to:", self.weights[index])
+            print("Lowering weight for point:", index - 2, "to:", self.weights[index])
         else:
-            print("Weight for point", index, "is already at the minimum value of 1.")
+            print("Weight for point", index - 2, "is already at the minimum value of 1.")
 
     def clear(self):
         self.points = []
@@ -217,7 +239,7 @@ class Scene:
         self.controllpoints = []
         self.knotvector = []
         self.ordnung = 5
-        self.degree = 4
+        self.degree = 4 # idk if degree is the right word
         self.kurvenpunkte = 0.3
         self.weights = []
 
@@ -243,11 +265,9 @@ class Scene:
             self.shader['color'] = self.point_color
             vao_polygon.render(mgl.POINTS)
 
-        if len(self.points) >= 2:
+
+        if len(self.points) > 6:
             self.determine_points_on_bezier_curve()
-
-        #print(self.weights)
-
 
 class RenderWindow:
     """
