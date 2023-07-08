@@ -11,8 +11,13 @@ indem man vom Nullpunkt des Koordinatensystems 6 Einheiten in x-Richtung, 7 Einh
 
 ![vektoren](https://i.imgur.com/ZldNMYN.jpg)
 
+ # Vektorrechnung
 
+![vektoren](https://i.imgur.com/IK29mYY.jpg)
 
+![vektoren](https://i.imgur.com/c2XyHe6.jpg)
+
+![vektoren](https://i.imgur.com/qaJrRH4.jpg)
 
 # RELEVANT FOR SUBMISSION 3 (NURBS/BEZIER CURVES)
 ### should be reordered later
