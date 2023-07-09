@@ -19,6 +19,22 @@ indem man vom Nullpunkt des Koordinatensystems 6 Einheiten in x-Richtung, 7 Einh
 
 ![vektoren](https://i.imgur.com/qaJrRH4.jpg)
 
+# Matrizen und Lineare Transformation
+
+![vektoren](https://i.imgur.com/eI1Jv57.png)
+
+## Matrix Multiplikation (2D)
+
+![vektoren](https://i.imgur.com/0zmIzTl.jpg)
+
+## Matrix Multiplikation (3D)
+![vektoren](https://i.imgur.com/FuoeFZB.jpg)
+
+# Determinante
+The bottom part might be wrong..
+![vektoren](https://i.imgur.com/Negh2LN.jpg)
+
+
 # RELEVANT FOR SUBMISSION 3 (NURBS/BEZIER CURVES)
 ### should be reordered later
 
